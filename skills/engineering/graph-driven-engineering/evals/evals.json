@@ -1,0 +1,38 @@
+{
+  "skill_name": "graph-driven-engineering",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We need to change an order API used by web, mobile, reporting, and a partner integration. Research must confirm the partner contract, the spec owner must decide compatibility, implementation and tests can partly overlap, and code review must see the blast radius. Coordinate the work so another agent can resume tomorrow.",
+      "expected_output": "A thin three-layer orchestration result with a Work Graph, Artifact Graph, optional bounded Code Graph, node contracts, execution waves, specialist handoffs, fan-in gates, evidence, and a checkpoint.",
+      "files": [],
+      "expectations": [
+        "Coordinates specialist work without producing competing research, specification, implementation, or review conclusions",
+        "Creates dependency-aware execution waves and artifact producer-consumer links",
+        "Defines resumable source-of-truth, evidence, unresolved queue, and verification gates"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "A production-only cache bug crosses route, serializer, service, feature flag, cache invalidation, and monitoring. Use the debugging workflow for root cause, then route the smallest safe fix and regression proof through the remaining work.",
+      "expected_output": "A DEBUG routing graph that delegates diagnosis, uses a bounded optional Code Graph, gates the fix on evidence, and avoids guessing the root cause.",
+      "files": [],
+      "expectations": [
+        "Leaves reproduction and root-cause ownership with the debugging specialist",
+        "Uses the Code Graph only because cross-layer impact affects ordering and validation",
+        "Unlocks implementation only after the diagnosis artifact passes its node gate"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Rename one private helper in a single file and update its focused unit test. No public callers or cross-team dependencies.",
+      "expected_output": "The skill declines the full graph workflow and routes the task to the normal coding workflow.",
+      "files": [],
+      "expectations": [
+        "Does not create a heavyweight graph or persistent artifact bundle",
+        "Recognizes this as a self-contained local change",
+        "Leaves implementation ownership with the normal coding workflow"
+      ]
+    }
+  ]
+}

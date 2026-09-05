@@ -1,0 +1,38 @@
+{
+  "skill_name": "graph-engineering",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Plan a change to an API response that touches the handler, a shared domain service, a database query, three consumers, contract tests, and deployment configuration. I need a resumable plan and clear handoffs to research, specification, implementation, and review workflows.",
+      "expected_output": "A bounded dependency-aware plan with nodes, labeled edges, critical path, delegation boundaries, persistent artifacts, unresolved queue, and validation gates.",
+      "files": [],
+      "expectations": [
+        "Uses PLAN mode and identifies cross-layer graph nodes and reverse consumers",
+        "Delegates specialized research/specification/review ownership instead of replacing those workflows",
+        "Defines resumable artifacts, unresolved items, and validation gates"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "A bug appears only in production after a cache-key change. The request path includes a route, service, serializer, cache, feature flag, and integration test. Help coordinate the diagnosis and the smallest safe fix without guessing the root cause.",
+      "expected_output": "A DEBUG coordination record with symptom and hypotheses, evidence requirements, affected graph, bounded debugging handoff, minimal-change follow-up, and validation gates.",
+      "files": [],
+      "expectations": [
+        "Does not claim a root cause from proximity alone",
+        "Routes reproduction and diagnosis to the debugging owner",
+        "Tracks evidence, unresolved hypotheses, reverse impact, and focused regression validation"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Review a refactor that moved a public interface across modules and changed tests and configuration. Build the changed-surface graph, identify consumers and compatibility risks, and prepare the context for the repository's code-review workflow.",
+      "expected_output": "A REVIEW coordination record with current/changed nodes, reverse consumers, compatibility and operational impact, review handoff, and disposition/validation tracking.",
+      "files": [],
+      "expectations": [
+        "Covers public contracts, reverse consumers, tests, configuration, and operational paths",
+        "Leaves review findings to the code-review owner",
+        "Uses a handoff contract and records the review gate"
+      ]
+    }
+  ]
+}

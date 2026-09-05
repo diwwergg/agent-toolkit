@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "diwwergg-toolkit",
+  "owner": {
+    "name": "diwwergg"
+  },
+  "description": "A personal collection of reusable agent skills and Claude Code plugins.",
+  "plugins": [
+    {
+      "name": "engineering",
+      "description": "Engineering workflow skills for dependency-heavy, multi-stage work.",
+      "category": "engineering",
+      "tags": ["engineering", "architecture", "workflow"],
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/engineering"]
+    }
+  ]
+}

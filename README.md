@@ -46,4 +46,3 @@ plugins/<plugin>/                    # Full Claude Code plugins
 
 - `engineering`: graph-engineering, graph-driven-engineering
 
-

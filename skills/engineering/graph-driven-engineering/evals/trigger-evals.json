@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Our checkout change spans the web app, pricing service, event schema, analytics consumers, and rollout config. Break the work into dependency waves, assign specialist owners, and leave a checkpoint for tomorrow's agent.",
+    "should_trigger": true
+  },
+  {
+    "query": "Coordinate an API migration where research must verify a vendor contract, the spec team decides compatibility, backend and mobile can work in parallel, and review needs evidence from both.",
+    "should_trigger": true
+  },
+  {
+    "query": "This production bug crosses a route, queue, worker, database transaction, feature flag, and alert. I want diagnosis delegated to the debugging skill and the eventual fix gated on evidence.",
+    "should_trigger": true
+  },
+  {
+    "query": "Plan a resumable refactor of the auth boundary across four packages. Show which tasks can run together, which artifacts feed the next stage, and how to verify fan-in.",
+    "should_trigger": true
+  },
+  {
+    "query": "We have three agents updating backend, frontend, and contract tests around the same schema. Prevent overlapping edits and keep one source of truth for unresolved decisions.",
+    "should_trigger": true
+  },
+  {
+    "query": "Map the work for splitting a monolith module: architecture decision first, two independent migrations next, then integration verification and code review. It may take several sessions.",
+    "should_trigger": true
+  },
+  {
+    "query": "Before implementing this shared SDK change, coordinate impact analysis for twelve consumers, collect evidence from owners, and unlock rollout work only after compatibility gates pass.",
+    "should_trigger": true
+  },
+  {
+    "query": "Need a work graph, artifact provenance, and verification gates for an incident follow-up involving code, runbooks, monitoring, security review, and deployment changes.",
+    "should_trigger": true
+  },
+  {
+    "query": "Our data migration has discovery, schema design, backfill, dual-write, validation, and cutover nodes with approval and rollback dependencies. Make it recoverable if the agent session ends.",
+    "should_trigger": true
+  },
+  {
+    "query": "Review this cross-repo platform proposal by coordinating research, domain modeling, prototype evidence, and final review; each specialist should keep ownership of its conclusion.",
+    "should_trigger": true
+  },
+  {
+    "query": "Research the latest PostgreSQL logical replication documentation and write a cited Markdown summary in the repo.",
+    "should_trigger": false
+  },
+  {
+    "query": "Diagnose why this one unit test throws TypeError in user_mapper.ts. Reproduce it and identify the root cause.",
+    "should_trigger": false
+  },
+  {
+    "query": "Review the changes on this branch against the issue and our coding standards, then report findings by severity.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write acceptance criteria for adding a required phone number field to the signup form.",
+    "should_trigger": false
+  },
+  {
+    "query": "Rename the private parseDate helper in one file and update its focused test.",
+    "should_trigger": false
+  },
+  {
+    "query": "Use TDD to add validation for negative invoice amounts in this existing function.",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain the call graph shown in this diagram in plain language; do not change or plan anything.",
+    "should_trigger": false
+  },
+  {
+    "query": "Create an ADR choosing between two cache libraries for this single module.",
+    "should_trigger": false
+  },
+  {
+    "query": "Resolve the current merge conflict in package-lock.json and run the existing verification command.",
+    "should_trigger": false
+  },
+  {
+    "query": "Refactor this 25-line function for readability without changing behavior; all callers are in the same file.",
+    "should_trigger": false
+  }
+]
