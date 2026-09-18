@@ -16,6 +16,12 @@ npx skills add diwwergg/agent-toolkit
 npx skills add diwwergg/agent-toolkit --skill graph-engineering
 ```
 
+ตัวอย่างติดตั้ง Postman Native Git skill:
+
+```bash
+npx skills add diwwergg/agent-toolkit --skill postman-native-git
+```
+
 ## Install Claude Code plugins
 
 เพิ่ม marketplace:
@@ -44,5 +50,5 @@ plugins/<plugin>/                    # Full Claude Code plugins
 
 ## Current categories
 
-- `engineering`: graph-engineering, graph-driven-engineering
+- `engineering`: graph-engineering, graph-driven-engineering, postman-native-git
 
