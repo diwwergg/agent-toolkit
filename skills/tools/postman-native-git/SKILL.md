@@ -125,22 +125,111 @@ The bundled validator intentionally checks rules that can be verified safely wit
 
 It does **not** claim to replace Postman's schema linter. If Postman CLI is installed, its lint result is authoritative for format/schema compatibility.
 
-## Local test/run
+## Postman CLI execution workflow
 
-For a Schema 3 collection, prefer:
+Use Postman CLI as the primary runner for Schema 3 collections. The agent must support three execution scopes: entire collection, one folder, or one/more individual requests.
+
+### 1. Discover and select an environment
+
+Before running a request that uses variables, inspect the repository for local environment files and existing project conventions. Typical candidates are under `postman/environments/` and use `*.environment.yaml`.
+
+Validate a selected local environment when possible:
 
 ```bash
-postman collection run "postman/collections/<Collection Name>"
+postman environment lint "postman/environments/<Environment>.environment.yaml"
 ```
 
-Use an environment file when needed:
+Selection rules:
+
+- If the user names an environment, use that exact local path or Postman environment UID.
+- If the repository/task already identifies the intended environment, reuse it.
+- If there is only one safe local/dev environment, it may be selected automatically.
+- If multiple environments are plausible, do not guess. Present the candidates or leave the run command ready for the user to choose.
+- Never select a production environment implicitly. Production execution requires explicit user intent.
+- Never copy secrets from one environment into another.
+
+Run with a local environment file:
 
 ```bash
 postman collection run "postman/collections/<Collection Name>" \
   -e "postman/environments/Local.environment.yaml"
 ```
 
-Running requests can require network access to the target API even when collection authoring itself is offline.
+The long form is equivalent:
+
+```bash
+postman collection run "postman/collections/<Collection Name>" \
+  --environment "postman/environments/Local.environment.yaml"
+```
+
+A Postman environment UID may also be used when the user is signed in and explicitly wants a cloud resource.
+
+For one-off, non-secret overrides, prefer CLI variables instead of editing the environment file:
+
+```bash
+postman collection run "postman/collections/<Collection Name>" \
+  -e "postman/environments/Local.environment.yaml" \
+  --env-var "user_id=123"
+```
+
+### 2. Select what to run
+
+Run the whole collection:
+
+```bash
+postman collection run "postman/collections/<Collection Name>"
+```
+
+Run one request by request name, request UID, or supported relative folder/request path:
+
+```bash
+postman collection run "postman/collections/<Collection Name>" \
+  -e "postman/environments/Local.environment.yaml" \
+  -i "Get User"
+```
+
+Prefer a UID or folder-qualified path when duplicate request names exist.
+
+Run one folder:
+
+```bash
+postman collection run "postman/collections/<Collection Name>" \
+  -e "postman/environments/Local.environment.yaml" \
+  -i "Users"
+```
+
+Run multiple requests/folders in an explicit order by repeating `-i`:
+
+```bash
+postman collection run "postman/collections/<Collection Name>" \
+  -e "postman/environments/Local.environment.yaml" \
+  -i "Auth/Login" \
+  -i "Users/Get User"
+```
+
+When the user asks to test a single endpoint after an edit, default to the smallest relevant scope instead of rerunning the whole collection. Include prerequisite requests only when the collection flow actually requires them.
+
+### 3. Execute, inspect, iterate
+
+For implementation/debugging tasks, use this loop:
+
+```text
+select environment
+  ↓
+select smallest relevant request/folder
+  ↓
+run with Postman CLI
+  ↓
+inspect HTTP result + Postman tests
+  ↓
+fix code/request if needed
+  ↓
+rerun the same selection
+  ↓
+optionally widen to folder/collection regression run
+```
+
+A non-zero Postman CLI exit code means the run failed and must not be reported as passing. Running requests can require network access to the target API even when collection authoring itself is offline.
 
 ## Native Git sync
 
