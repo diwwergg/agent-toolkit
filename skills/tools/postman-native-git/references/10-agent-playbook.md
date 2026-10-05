@@ -55,3 +55,35 @@ Look for:
 ## Offline escalation rule
 
 Do not search the web unless local evidence cannot resolve the problem. When escalation is required, search only the exact failing rule/field/Postman version, update the relevant local reference note, and return to offline operation.
+
+## Run or debug an endpoint with Postman CLI
+
+```text
+inspect project
+  ↓
+locate collection + request
+  ↓
+discover environment candidates
+  ↓
+select explicit/safe environment
+  ↓
+lint collection + environment when available
+  ↓
+run target request with -i and -e
+  ↓
+inspect status/body/tests
+  ↓
+fix and rerun same request
+  ↓
+optionally run parent folder / full collection
+```
+
+Rules:
+
+- use `-e` / `--environment` for environment path or UID;
+- use `-i` for a request/folder name, path, or UID;
+- repeat `-i` for ordered dependencies;
+- prefer the smallest relevant run scope;
+- do not guess between multiple environments;
+- never run against production unless the user explicitly requests it;
+- treat a non-zero CLI exit code as failure.
