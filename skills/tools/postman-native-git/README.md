@@ -21,6 +21,9 @@ The skill itself is tool-agnostic and follows the Agent Skills directory convent
 - Python 3.7+ helper scripts
 - Existing repository conventions override generic examples
 - Postman CLI lint is authoritative when available
+- Postman CLI request/folder execution with `-i`
+- Selectable local/cloud environments with `-e` / `--environment`
+- Safe execution policy: smallest relevant scope, never implicit production
 - Web research is a last resort, not a routine dependency
 
 Run a quick health check:
